@@ -1,0 +1,16 @@
+/* app css stylesheet */
+
+body {
+  padding-top: 20px;
+}
+
+.covered {
+    color: #b8b8b8;
+    text-decoration-line: line-through;
+}
+
+.notCovered {
+    color: #000000;
+    text-decoration-line: no-line-through;
+}
+
