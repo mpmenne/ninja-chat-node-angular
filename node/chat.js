@@ -22,4 +22,9 @@ io.sockets.on('connection', function (socket) {
     socket.on('new ninja', function (data) {
         console.log(data);
     });
+    socket.on('new message', function(data) {
+        console.log('got the message');
+        var message = {name: "anonymous", msg: data.msg };
+        socket.broadcast.emit("update ninjas", message);
+    })
 });
