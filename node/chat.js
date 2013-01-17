@@ -19,15 +19,9 @@ function handler (req, res) {
 
 io.sockets.on('connection', function (socket) {
     console.log('connected!');
-    socket.on('new ninja', function (data) {
-        var newNinjaMessage =
-            {name: "masterNinja", msg: "Hey, " + data + " is looking for a fight!"};
-        socket.emit("update ninjas", {name:"masterNinja", msg:"You're in ... for now"});
-        socket.broadcast.emit("update ninjas", newNinjaMessage);
-    });
     socket.on('new message', function(data) {
         console.log('got the message');
         var message = {name: data.name, msg: data.msg };
         socket.broadcast.emit("update ninjas", message);
-    })
+    });
 });
